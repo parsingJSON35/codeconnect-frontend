@@ -14,7 +14,8 @@ class UserCard extends Component {
   // const isLiked = () => this.props.current.user_likees.find(likee =>
   //   likee.id === props.profile.id)
 
-  likeUser = () => {
+  likeUser = (e) => {
+    debugger
     fetch(`http://localhost:3001/api/v1/users/${this.props.current.id}`, {
       method: 'PATCH',
       headers: {
@@ -25,7 +26,8 @@ class UserCard extends Component {
     }).then(this.setState({liked: !this.state.liked}))
   }
 
-  unlikeUser = () => {
+  unlikeUser = (e) => {
+    debugger
     // let userToLike = {
     //   id: props.profile.id,
     //   username: props.profile.username,
@@ -47,7 +49,10 @@ class UserCard extends Component {
   render() {
     return (
       <Fragment>
-        <Card onClick={() => this.props.clickHandler(this.props.profile)}>
+        <Card onClick={(e) => {
+          debugger
+          this.props.clickHandler(e, this.props.profile)
+        }}>
           <Card.Content>
             <Card.Header>{this.props.profile.username}</Card.Header>
             <Card.Meta>{this.props.profile.skills.map(skill =>

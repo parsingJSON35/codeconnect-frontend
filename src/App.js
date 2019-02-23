@@ -22,9 +22,11 @@ class App extends Component {
     }
   }
 
-  highlightUser = (user) => {
+  highlightUser = (e, user) => {
     console.log('highlighting user');
-    this.setState({selected_user: user}, this.props.history.push(`/profiles/${user.username}`))
+    if(e.target.type !== 'submit') {
+      this.setState({selected_user: user}, this.props.history.push(`/profiles/${user.username}`))
+    }
   }
 
   isLiked = (user) => this.state.current_user.user_likees.find(likee =>
