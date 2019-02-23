@@ -17,7 +17,7 @@ class Navbar extends Component {
         </Menu.Item>
         <Menu.Item as={Link} to='/profiles'
           name='profiles'
-          active={activeItem === 'profiles'}
+          active={this.state.activeItem === 'profiles'}
           onClick={this.handleClick}
         >
           Browse Profiles
@@ -25,7 +25,7 @@ class Navbar extends Component {
 
         <Menu.Item as={Link} to='/likes'
           name='likes'
-          active={activeItem === 'likes'}
+          active={this.state.activeItem === 'likes'}
           onClick={this.handleClick}
         >
           My Likes
@@ -33,7 +33,7 @@ class Navbar extends Component {
 
         <Menu.Item as={Link} to='/profile'
           name='profile'
-          active={activeItem === 'profile'}
+          active={this.state.activeItem === 'profile'}
           onClick={this.handleClick}
         >
           My Profile

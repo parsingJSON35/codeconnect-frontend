@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import { Card, Icon, Image, Button } from 'semantic-ui-react'
 
 class UserCard extends Component {
@@ -46,7 +46,7 @@ class UserCard extends Component {
   }
   render() {
     return (
-      <div>
+      <Fragment>
         <Card onClick={() => this.props.clickHandler(this.props.profile)}>
           <Card.Content>
             <Card.Header>{this.props.profile.username}</Card.Header>
@@ -55,9 +55,14 @@ class UserCard extends Component {
             </Card.Meta>
             <Card.Description>{`${this.props.profile.bio.slice(0, 140)}...`}</Card.Description>
           </Card.Content>
+          <Card.Content extra>
+            { this.state.liked ? <Button color='red'
+              onClick={this.unlikeUser}>Remove Like</Button> : <Button
+              color='green' onClick={this.likeUser} >Like</Button> }
+          </Card.Content>
         </Card>
-        { this.state.liked ? <Button color='red' onClick={this.unlikeUser}>Remove Like</Button> : <Button color='green' onClick={this.likeUser} >Like</Button> }
-      </div>
+
+      </Fragment>
     )
   }
 }
