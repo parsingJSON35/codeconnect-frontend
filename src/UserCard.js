@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import { Card, Icon, Image, Button } from 'semantic-ui-react'
+import Avatar from 'react-avatar'
 
 class UserCard extends Component {
   constructor(props) {
@@ -54,11 +55,14 @@ class UserCard extends Component {
           this.props.clickHandler(e, this.props.profile)
         }}>
           <Card.Content>
-            <Card.Header>{this.props.profile.username}</Card.Header>
+            <Card.Header>
+              <div>{this.props.profile.username}</div>
+              <Avatar name={`${this.props.profile.username}`} size='75'/>
+            </Card.Header>
             <Card.Meta>{this.props.profile.skills.map(skill =>
               skill.language).join(' | ')}
             </Card.Meta>
-            <Card.Description>{`${this.props.profile.bio.slice(0, 140)}...`}</Card.Description>
+            <Card.Description>{`${this.props.profile.bio.slice(0, 100)}...`}</Card.Description>
           </Card.Content>
           <Card.Content extra>
             { this.state.liked ? <Button color='red'

@@ -30,3 +30,13 @@
     transform: rotate(360deg);
   }
 }
+
+#profile {
+  margin-top: 50px;
+  padding-right: 50px;
+}
+
+#profile-bio {
+  padding-left: 50px;
+  line-height: 2.5em;
+}
