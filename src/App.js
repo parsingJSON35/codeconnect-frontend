@@ -22,6 +22,30 @@ class App extends Component {
     }
   }
 
+  updateLike = user => {
+    console.log('like updated')
+
+    let update = this.state.current_user
+    let userCopy = this.state.users
+    let newest = userCopy.find(u => u.id === user.id)
+
+    console.log(user, update, newest);
+
+    if (update.user_likees.find(u => u.id === user.id)) {
+      update.user_likees = update.user_likees.filter(u => u.id !== user.id)
+      newest.user_likers = newest.user_likers.filter(u => u.id !== update.id)
+    } else {
+      update.user_likees.push(user)
+      newest.user_likers.push(update)
+    }
+
+
+    this.setState({
+      current_user: update,
+      users: userCopy
+    })
+  }
+
   highlightUser = (e, user) => {
     console.log('highlighting user');
     if(e.target.type !== 'submit') {
@@ -125,7 +149,7 @@ class App extends Component {
         <Navbar logout={this.logoutUser}/>
         <Route exact path=':path(/|/profiles)'render={() => <UserCollection
           displayUsers={this.displayUsers()} userSelect={this.highlightUser} current={this.state.current_user} isLiked={this.isLiked}
-          updateFilter={this.updateFilter} />}  />
+          updateFilter={this.updateFilter} updateLike={this.updateLike} />}  />
         <Route exact path='/likes' render={() => <Likes
           current_user={this.state.current_user}/>} />
 

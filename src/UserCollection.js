@@ -8,7 +8,7 @@ class UserCollection extends Component {
     super(props)
 
     this.state = {
-      distances: [],
+      filteredUsers: [],
       distanceFilter: 'Any'
     }
   }
@@ -16,7 +16,7 @@ class UserCollection extends Component {
   renderUsers = () => {
     return this.props.displayUsers.map(u => <UserCard
       key={u.id} profile={u} isLiked={this.props.isLiked} current={this.props.current}
-      clickHandler={this.props.userSelect} />)
+      clickHandler={this.props.userSelect} updateLike={this.props.updateLike}/>)
   }
 
   componentDidMount() {

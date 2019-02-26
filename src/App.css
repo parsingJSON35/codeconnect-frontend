@@ -40,3 +40,19 @@
   padding-left: 50px;
   line-height: 2.5em;
 }
+
+#filter {
+  margin-top: 50px;
+}
+
+#filter-text {
+  font-size: 1.5em;
+}
+
+.card-ava {
+  margin-top: 5px;
+}
+
+.card-skills {
+  margin-top: 15px;
+}

@@ -77,8 +77,8 @@ const UserFilter = (props) => {
   }
 
   return (
-    <div>
-      <span>
+    <div id='filter'>
+      <span id='filter-text'>
       I am a looking for {' '}
       <Dropdown inline options={roleOptions} name='roleFilter'
         defaultValue={roleOptions[0].text}
