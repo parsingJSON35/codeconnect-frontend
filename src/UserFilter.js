@@ -73,7 +73,7 @@ const UserFilter = (props) => {
   }
 
   const distChange = (e, input) => {
-    console.log('distance changed');
+    props.updateDistance(input);
   }
 
   return (

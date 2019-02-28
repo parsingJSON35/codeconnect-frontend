@@ -55,7 +55,7 @@ class UserCard extends Component {
 
             <Card.Description>{`${this.props.profile.bio.slice(0, 100)}...`}</Card.Description>
 
-            <h3><strong>15 Miles</strong></h3>
+            <h3><strong>{this.props.profile.distance} miles</strong></h3>
 
           </Card.Content>
           <Card.Content extra>
