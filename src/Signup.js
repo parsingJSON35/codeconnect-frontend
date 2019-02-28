@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Form, Button} from 'semantic-ui-react'
+import {Form, Button, Grid, Segment} from 'semantic-ui-react'
 import {Link, withRouter} from 'react-router-dom'
 
 const options = [
@@ -61,33 +61,45 @@ class Signup extends Component {
 
   render() {
     return (
+      <div className='login-form'>
+      <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
+        <Grid.Column style={{maxWidth: 925 }}>
+        <h2>Sign Up for Your CodeConnect Account</h2>
       <Form>
-        <Form.Input label='Username' placeholder='Username' name='username'
-          onChange={(e, input) => this.handleChange(e, input)} />
+        <Segment>
+          <Form.Input label='Username' placeholder='Username' name='username'
+            onChange={(e, input) => this.handleChange(e, input)} />
 
-        <Form.Input label='Zip Code' placeholder='Zip Code' name='zip_code'
-          type='number' onChange={(e, input) => this.handleChange(e, input)} />
+          <Form.Input label='Zip Code' placeholder='Zip Code' name='zip_code'
+            type='number' onChange={(e, input) => this.handleChange(e, input)} />
 
-        <Form.TextArea label='Biography'
-          placeholder='Tell your fellow coders about yourself...' name='bio'
-          onChange={(e, input) => this.handleChange(e, input)} />
+              <Form.TextArea label='Biography'
+            placeholder='Tell your fellow coders about yourself...' name='bio'
+            onChange={(e, input) => this.handleChange(e, input)} />
 
-        <Form.Group>
-            <Form.Select onChange={(e, input) => this.skillset(e, input)}
-              label='Ruby' name='ruby' options={options}/>
+            <h4>Skills</h4>
+              <Segment>
+                <Form.Group>
+                  <Form.Select onChange={(e, input) => this.skillset(e, input)}
+                    label='Ruby' name='ruby' options={options}/>
 
-              <Form.Select onChange={(e, input) => this.skillset(e, input)}
-                label='Rails' name='rails' options={options}/>
+                    <Form.Select onChange={(e, input) => this.skillset(e, input)}
+                      label='Rails' name='rails' options={options}/>
 
-              <Form.Select onChange={(e, input) => this.skillset(e, input)}
-                label='React' name='react' options={options}/>
+                    <Form.Select onChange={(e, input) => this.skillset(e, input)}
+                      label='React' name='react' options={options}/>
 
-              <Form.Select onChange={(e, input) => this.skillset(e, input)}
-                label='JavaScript' name='javascript' options={options}/>
-        </Form.Group>
+                    <Form.Select onChange={(e, input) => this.skillset(e, input)}
+                      label='JavaScript' name='javascript' options={options}/>
+                  </Form.Group>
+                </Segment>
 
-        <Button as={Link} to='/profiles' color='green' onClick={this.handleSubmit}>Register Your Account</Button>
-      </Form>
+                <Button as={Link} to='/profiles' color='green' onClick={this.handleSubmit}>Register Your Account</Button>
+              </Segment>
+            </Form>
+          </Grid.Column>
+        </Grid>
+      </div>
     )
   }
 }

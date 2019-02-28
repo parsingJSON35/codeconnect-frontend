@@ -13,8 +13,11 @@ class Login extends Component {
 
   render() {
     return (
+      <div className='login-form'>
       <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
         <Grid.Column style={{maxWidth: 600}}>
+          <h1>Welcome to CodeConnect!</h1>
+          <h3>Login to your account below</h3>
           <Form onSubmit={(e, name) => this.props.handleSubmit(e, this.state.username)}>
             <Segment stacked>
               <Form.Input fluid icon='user' iconPosition='left'
@@ -31,6 +34,7 @@ class Login extends Component {
           </Message>
         </Grid.Column>
       </Grid>
+      </div>
     )
   }
 }

@@ -11,7 +11,7 @@ class Navbar extends Component {
     const {activeItem} = this.setState
 
     return (
-      <Menu>
+      <Menu id='nav'>
         <Menu.Item as={Link} to='/'>
           <h2>CodeConnect</h2><br />
         </Menu.Item>
