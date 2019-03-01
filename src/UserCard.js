@@ -41,9 +41,11 @@ class UserCard extends Component {
   componentDidMount() {
     fetch(`https://www.zipcodeapi.com/rest/${process.env.REACT_APP_ZIPCODE_API_KEY}/distance.json/${this.props.current.zip_code}/${this.props.profile.zip_code}/mile`)
       .then(res => res.json()).then(data => {
-        this.props.setDistance(this.props.profile.id, data.distance)
+        let distance = Math.floor(data.distance)
+
+        this.props.setDistance(this.props.profile.id, distance)
         this.setState({
-          distance: data.distance,
+          distance: distance,
           loading: false
         })
       })
