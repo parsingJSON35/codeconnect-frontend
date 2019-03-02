@@ -76,11 +76,11 @@ class UserCollection extends Component {
     }
 
 
-    return filtered
+    return filtered.sort((a,b) => a.distance - b.distance)
   }
 
   renderUsers = () => {
-    return this.filterUsers() ? this.filterUsers().map(u => <UserCard
+    return this.filterUsers().length !== 0 ? this.filterUsers().map(u => <UserCard
       key={u.id} profile={u} isLiked={this.props.isLiked} current={this.props.current}
       clickHandler={this.props.userSelect} updateLike={this.props.updateLike}
       setDistance={this.setDistance} />) : <h1>NO USERS FOUND</h1>
