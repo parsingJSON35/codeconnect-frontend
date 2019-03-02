@@ -94,7 +94,7 @@ const UserFilter = (props) => {
 
       <Dropdown inline name='distanceFilter' options={distanceOptions}
         defaultValue={distanceOptions[0].text}
-        onChange={(e, i) => distChange(e, i)} />
+        onChange={(e, i) => handleChange(e, i)} />
 
       {' '} distance.
       </span><br /><br /><br /><br />
