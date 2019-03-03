@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Menu} from 'semantic-ui-react'
-import {Link} from 'react-router-dom'
+import {Link, NavLink} from 'react-router-dom'
 
 class Navbar extends Component {
   state = { }
@@ -15,7 +15,7 @@ class Navbar extends Component {
         <Menu.Item as={Link} to='/'>
           <h2>CodeConnect</h2><br />
         </Menu.Item>
-        <Menu.Item as={Link} to='/profiles'
+        <Menu.Item as={NavLink} to='/profiles'
           name='profiles'
           active={this.state.activeItem === 'profiles'}
           onClick={this.handleClick}
@@ -23,7 +23,7 @@ class Navbar extends Component {
           Browse Profiles
         </Menu.Item>
 
-        <Menu.Item as={Link} to='/likes'
+        <Menu.Item as={NavLink} to='/likes'
           name='likes'
           active={this.state.activeItem === 'likes'}
           onClick={this.handleClick}
@@ -31,7 +31,7 @@ class Navbar extends Component {
           My Likes
         </Menu.Item>
 
-        <Menu.Item as={Link} to='/profile'
+        <Menu.Item as={NavLink} to='/profile'
           name='profile'
           active={this.state.activeItem === 'profile'}
           onClick={this.handleClick}

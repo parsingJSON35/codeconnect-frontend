@@ -80,3 +80,18 @@ body > div > div > div.login-form {
 #update-form {
   margin-top: 0;
 }
+
+#id {
+  margin: 0 auto;
+}
+
+.skillset-display {
+  list-style: none;
+  display: inline-block;
+  text-align: left;
+  font-size: 1.2em;
+}
+
+.skillset-display li {
+  margin-bottom: 20px;
+}

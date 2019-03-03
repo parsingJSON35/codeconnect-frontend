@@ -16,7 +16,6 @@ class App extends Component {
     this.state = {
       users: [],
       current_user: null,
-      selected_user: null,
       roleFilter: 'All',
       languageFilter: 'Any'
     }
@@ -46,12 +45,6 @@ class App extends Component {
     })
   }
 
-  highlightUser = (e, user) => {
-    console.log('highlighting user');
-    if(e.target.type !== 'submit') {
-      this.setState({selected_user: user}, this.props.history.push(`/profiles/${user.username}`))
-    }
-  }
 
   isLiked = (user) => this.state.current_user.user_likees.find(likee =>
     likee.id === user.id)
@@ -148,7 +141,7 @@ class App extends Component {
       <div className="App">
         <Navbar logout={this.logoutUser}/>
         <Route exact path=':path(/|/profiles)'render={() => <UserCollection
-          displayUsers={this.displayUsers()} userSelect={this.highlightUser} current={this.state.current_user} isLiked={this.isLiked}
+          displayUsers={this.displayUsers()} current={this.state.current_user} isLiked={this.isLiked}
           updateFilter={this.updateFilter} updateLike={this.updateLike} />}  />
         <Route exact path='/likes' render={() => <Likes
           current_user={this.state.current_user}/>} />

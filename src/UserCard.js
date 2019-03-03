@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import { Card, Icon, Image, Button } from 'semantic-ui-react'
 import Avatar from 'react-avatar'
+import {Link} from 'react-router-dom'
 
 class UserCard extends Component {
   constructor(props) {
@@ -12,10 +13,6 @@ class UserCard extends Component {
       loading: true,
     }
   }
-
-
-  // const isLiked = () => this.props.current.user_likees.find(likee =>
-  //   likee.id === props.profile.id)
 
   likeUser = e => {
     let profile = {
@@ -54,32 +51,28 @@ class UserCard extends Component {
   render() {
     return (
       this.state.loading ? null : (
-        <Fragment>
-          <Card onClick={(e) => {
-            this.props.clickHandler(e, this.props.profile)
-          }}>
-            <Card.Content>
-              <Card.Header>
-                <div>{this.props.profile.username}</div>
-                <Avatar className='card-ava' name={`${this.props.profile.username}`} size='75'/>
-              </Card.Header>
+            <Card as={Link} to={`/profiles/${this.props.profile.username}`}>
+              <Card.Content>
+                <Card.Header>
+                  <div>{this.props.profile.username}</div>
+                  <Avatar className='card-ava' name={`${this.props.profile.username}`} size='75'/>
+                </Card.Header>
 
-              <Card.Meta className='card-skills'>{this.props.profile.skills.map(skill =>
-                skill.language).join(' | ')}
-              </Card.Meta>
+                <Card.Meta className='card-skills'>{this.props.profile.skills.map(skill =>
+                  skill.language).join(' | ')}
+                </Card.Meta>
 
-              <Card.Description>{`${this.props.profile.bio.slice(0, 100)}...`}</Card.Description>
+                <Card.Description>{`${this.props.profile.bio.slice(0, 100)}...`}</Card.Description>
 
-              <h3><strong>{this.state.distance} miles</strong></h3>
+                <h3><strong>{this.state.distance} miles</strong></h3>
 
-            </Card.Content>
-            <Card.Content extra>
-              { this.state.liked ? <Button color='red'
-                onClick={this.likeUser}>Remove Like</Button> : <Button
-                color='green' onClick={ e => this.likeUser(e, this.props.profile)} >Like</Button> }
-            </Card.Content>
-          </Card>
-        </Fragment>
+              </Card.Content>
+              <Card.Content extra>
+                { this.state.liked ? <Button color='red'
+                  onClick={this.likeUser}>Remove Like</Button> : <Button
+                  color='green' onClick={ e => this.likeUser(e, this.props.profile)} >Like</Button> }
+              </Card.Content>
+            </Card>
       )
     )
   }

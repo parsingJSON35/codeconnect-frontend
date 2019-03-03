@@ -81,9 +81,8 @@ class UserCollection extends Component {
 
   renderUsers = () => {
     return this.filterUsers().length !== 0 ? this.filterUsers().map(u => <UserCard
-      key={u.id} profile={u} isLiked={this.props.isLiked} current={this.props.current}
-      clickHandler={this.props.userSelect} updateLike={this.props.updateLike}
-      setDistance={this.setDistance} />) : <h1>NO USERS FOUND</h1>
+      key={u.id} profile={u} isLiked={this.props.isLiked} current={this.props.current} updateLike={this.props.updateLike}
+      setDistance={this.setDistance} />) : <h3 id='empty'>NO USERS FOUND</h3>
   }
 
   componentDidMount() {
