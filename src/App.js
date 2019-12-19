@@ -137,6 +137,8 @@ class App extends Component {
   }
 
   render() {
+  if(this.state.current_user) { console.log(Object.getOwnPropertyNames(this.state.current_user)) }
+
     return this.state.current_user ? (
       <div className="App">
         <Navbar logout={this.logoutUser}/>
